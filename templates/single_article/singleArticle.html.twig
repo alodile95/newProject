@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SingleArticleController!{% endblock %}
+
+{% block body %}
+
+
+{% for article in singleArticle %}
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-8">
+<div >
+<div class="card-content">
+    <div class="card-body">
+<img width="800" src="{{article.picture}}" alt="">
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="col-md-4">
+    <h1 class="text-center">{{article.title}}</h1>
+    <h2 class="text-center">{{article.subtitle}}</h2>
+    <br><br>
+    <p>{{article.description}}</p>
+</div>
+</div>
+
+{% endfor %}
+
+
+{% endblock %}
