@@ -19,7 +19,7 @@ class ArticleController extends AbstractController
     }
     
     /**
-     * @Route("/article", name="article")
+     * @Route("/admin/article", name="article")
      */
     public function article(Request $request): Response
     {

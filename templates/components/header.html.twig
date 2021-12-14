@@ -29,6 +29,10 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{path('account')}}">Mon compte</a></li>
             {% endif %}
+
+            {% if app.user and app.user.role == "Admin" %}
+            <li><a class="dropdown-item" href="{{path('dashboard')}}">Administration</a></li>
+            {% endif %}
           </ul>
         </li>
       

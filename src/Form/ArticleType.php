@@ -40,7 +40,7 @@ class ArticleType extends AbstractType
                 'attr' => ['class' => 'btn-dark']
             ]);
         
-        ;
+        
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -20,6 +20,7 @@ class SingleArticleController extends AbstractController
     {
         // va dans la table article et récupère l'article avec l'id de l'article 1
         $singleArticle = $this->entityManager->getRepository(Article::class)->findBy(['id'=> $id]);
+       
         return $this->render('single_article/singleArticle.html.twig', [
             'singleArticle' => $singleArticle,
         ]);

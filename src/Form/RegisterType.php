@@ -30,10 +30,7 @@ class RegisterType extends AbstractType
                 'required' => true,
                 'attr' => ['placeholder' => 'Entrez votre email']
             ])
-            ->add('email', EmailType::class, [
-                'required' => true,
-                'attr' => ['placeholder' => 'Entrez votre email']
-            ])
+        
             ->add('password', PasswordType::class, [
                 'label' => 'Mot de passe',
                 'attr' => ['placeholder' => 'Entrez votre mot de passe']
