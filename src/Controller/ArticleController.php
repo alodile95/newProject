@@ -33,7 +33,8 @@ class ArticleController extends AbstractController
             $article->setCreatedAt(new \DateTime());
             $this->entityManager->persist($article);
             $this->entityManager->flush();
-
+            $this->addFlash('success','Article ajouter!');
+            return $this->redirectToRoute('dashboard');
         }
 
         return $this->render('article/article.html.twig',[

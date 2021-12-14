@@ -55,4 +55,36 @@ class DashboardController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+
+    //TOTO au sein meme de ce controlleur me fair une fonction de supression d'un article .
+    // 1.recuperer l'id de l'article a supprimer
+    // 2.utiliser l entityManager pour supprimer l'article
+    // 3.flush permet d executer la requete
+
+     
+    /**
+     * @Route("/admin/delete/article/{id}", name="delete_article")
+     */
+    public function deleteArticle(Article $article): Response
+    {
+          $this->entityManager->remove($article);
+          $this->entityManager->flush();
+          $this->addFlash('success','Article supprimé !');
+          return $this->redirectToRoute('dashboard');
+    }
+
+       
+    /**
+     * @Route("/admin/delete/user/{id}", name="delete_user")
+     */
+    public function deleteUser(User $user): Response
+    {
+          $this->entityManager->remove($user);
+          $this->entityManager->flush();
+          $this->addFlash('success','Utilisateur supprimé !');
+          return $this->redirectToRoute('dashboard');
+    }
+
+
 }

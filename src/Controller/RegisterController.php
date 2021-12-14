@@ -49,6 +49,7 @@ class RegisterController extends AbstractController
         $this->entityManager->persist($user); // prepare les donnés
         $this->entityManager->flush();//envoi en base de donné
         
+        return $this->redirectToRoute('app_login');
 
        }
 

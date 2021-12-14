@@ -7,6 +7,20 @@
 <h1 class="text-muted text-center">Mon tableau de board</h1>
 <hr>
 <section class="container">
+<div  class="col-sm-12 col-lg-12 col-xl-12">
+{% for label, messages in app.flashes %}
+{% for message in messages %}
+<div class="alert alert-{{ label }} alert-dismissible fade show" role="alert">
+    {% if label == 'success' %}
+    <span class="alert-inner--icon"><i class="fe fe-thumbs-up"></i></span>
+    {% else %}
+    <span class="alert-inner--icon"><i class="fe fe-thumbs-down"></i></span>
+    {% endif %}
+    <span class="alert-inner--text"><strong>{{ label | title }} : </strong> {{ message | raw }}</span>
+</div>
+{% endfor %}
+{% endfor %}
+</div>
     <h2 class="text-muted text-center">Mes articles</h2>
     <a class="btn btn-dark mb-2" href="{{path('article')}}">Ajouter un article</a>
     <table class="table">
@@ -29,7 +43,7 @@
             <td title="{{article.description}}">{{article.description | length > 50 ? article.description|slice(0, 50)}}... </td>
             <td><img style="width:100px;" src="{{article.picture}}" alt=""></td>
             <td>
-                <a href=""><i class="fa fa-trash"></i></a> |  <a href="{{path('edit_article',{'id': article.id })}}"><i class="fa fa-edit"></i></a> 
+                <a href="{{path('delete_article',{'id': article.id })}}"><i class="fa fa-trash"></i></a> |  <a href="{{path('edit_article',{'id': article.id })}}"><i class="fa fa-edit"></i></a> 
             </td>
           </tr>
             {% endfor %}
@@ -54,7 +68,7 @@
               <td>{{user.firstname}}</td>
               <td>{{user.email}}</td>
               <td>
-                  <a href=""><i class="fa fa-trash"></i></a></a> 
+                  <a href="{{path('delete_user',{'id': user.id })}}"><i class="fa fa-trash"></i></a></a> 
               </td>
             </tr>
               {% endfor %}
